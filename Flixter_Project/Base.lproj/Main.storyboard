@@ -176,7 +176,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-1h-IcW">
-                                <rect key="frame" x="20" y="281" width="119" height="177"/>
+                                <rect key="frame" x="20" y="288" width="119" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQe-eH-PTh">
@@ -193,12 +193,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOE-Q0-TEM">
+                                <rect key="frame" x="20" y="288" width="119" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="button"/>
+                                <connections>
+                                    <action selector="TrailerButton:" destination="XC9-p6-PsJ" eventType="touchUpInside" id="mNC-pm-glI"/>
+                                    <segue destination="nrl-4S-ni0" kind="modal" id="Ug2-mI-yQF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9cH-V3-TsV"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tw0-Qm-9za"/>
                     <connections>
+                        <outlet property="TrailerButton" destination="SOE-Q0-TEM" id="c4G-lT-YcE"/>
                         <outlet property="backdropView" destination="PZk-1m-dxH" id="ETu-cG-Tpv"/>
                         <outlet property="posterView" destination="ywc-1h-IcW" id="BAf-kK-Tyn"/>
                         <outlet property="synopsisLabel" destination="Hrn-vO-Sai" id="3bL-yf-WYS"/>
@@ -206,8 +217,38 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0W-QH-iVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XC9-p6-PsJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1815.9420289855075" y="835.71428571428567"/>
+        </scene>
+        <!--Movie Trailer View Controller-->
+        <scene sceneID="9Aw-9f-G4X">
+            <objects>
+                <viewController id="nrl-4S-ni0" customClass="MovieTrailerViewController" customModule="Flixter_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fyl-b2-Fmz" customClass="MovieTrailerViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDD-fg-TiM">
+                                <rect key="frame" x="87" y="303" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="do8-h8-b3b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="TrailerView" destination="DDD-fg-TiM" id="d6e-vc-VjD"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LuV-LR-r2u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899" y="1618"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="veQ-oz-PvP">
